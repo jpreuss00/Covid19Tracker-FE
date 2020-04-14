@@ -1,0 +1,24 @@
+{
+  "name": "covid19trackerfe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html --out-dir docs --public-url .",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpreuss00/Covid19Tracker-FE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpreuss00/Covid19Tracker-FE/issues"
+  },
+  "homepage": "https://github.com/jpreuss00/Covid19Tracker-FE#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
