@@ -29,8 +29,8 @@ function showUserData(data){
 }
 
 function handleDelete(){
-    deleteCode = $(".delete_deleteCode").val();
-    $(".delete_deleteCode").val(URLEncoder.encode(deleteCode, StandardCharsets.UTF_8));
+    deleteCode = $(".delete_deletecode").val();
+    $(".delete_deletecode").val(URLEncoder.encode(deleteCode, StandardCharsets.UTF_8));
     handleDeleteRequest(deleteCode);
 }
 
