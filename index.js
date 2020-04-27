@@ -52,14 +52,18 @@ function handleDeleteRequest(deleteCode){
 
 function errorMessageDelete() {
     $(".delete__deletecode").addClass('delete__deletecode--invalid');
+    $(".delete__deletecode").val('wrong deleteCode');
     setTimeout(function () {
         $(".delete__deletecode").removeClass('delete__deletecode--invalid');
-    }, 1000);
+        $(".delete__deletecode").val('');
+    }, 2500);
 }
 
 function successMessageDelete() {
     $(".delete__deletecode").addClass('delete__deletecode--success');
+    $(".delete__deletecode").val('deletion successfull');
     setTimeout(function () {
         $(".delete__deletecode").removeClass('delete__deletecode--success');
-    }, 1000);
+        $(".delete__deletecode").val('');
+    }, 2500);
 }
