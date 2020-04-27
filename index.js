@@ -29,12 +29,13 @@ function showUserData(data){
 }
 
 function handleDelete(){
+alert("handleDelete");
     deleteCode = $(".delete__deletecode").val();
-    $(".delete__deletecode").val(URLEncoder.encode(deleteCode, StandardCharsets.UTF_8));
     handleDeleteRequest(deleteCode);
 }
 
 function handleDeleteRequest(deleteCode){
+alert("handleDeleteRequest");
     $.get({
         url: "https://enigmatic-retreat-23877.herokuapp.com/delete?deleteCode="+URLEncoder.encode(deleteCode, StandardCharsets.UTF_8),
         statusCode: {
