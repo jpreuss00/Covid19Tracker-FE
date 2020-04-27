@@ -35,9 +35,9 @@ alert("handleDelete");
 }
 
 function handleDeleteRequest(deleteCode){
-alert("handleDeleteRequest");
+alert(encodeURIComponent(deleteCode));
     $.get({
-        url: "https://enigmatic-retreat-23877.herokuapp.com/delete?deleteCode=9392%23lehvc",
+        url: "https://enigmatic-retreat-23877.herokuapp.com/delete?deleteCode="+encodeURIComponent(deleteCode),
         statusCode: {
             400: function () {
                 console.log("error");
