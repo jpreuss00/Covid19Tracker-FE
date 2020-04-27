@@ -14,10 +14,11 @@ function handleRegisterRequest(callback){
          url: "https://enigmatic-retreat-23877.herokuapp.com/register",
          success: function (data) {
                      callback(data);
+                     successMessageRegister();
                  },
          statusCode: {
              500: function () {
-                 console.log("error");
+                 errorMessageRegister();
              }
          }
      });
@@ -38,13 +39,13 @@ function handleDeleteRequest(deleteCode){
         url: "https://enigmatic-retreat-23877.herokuapp.com/delete?deleteCode="+encodeURIComponent(deleteCode),
         statusCode: {
             400: function () {
-                errorMessageDelete()
+                errorMessageDelete();
             },
             404: function () {
-                errorMessageDelete()
+                errorMessageDelete();
             },
             204: function () {
-                successMessageDelete()
+                successMessageDelete();
             }
         }
     });
