@@ -50,6 +50,24 @@ function handleDeleteRequest(deleteCode){
     });
 }
 
+function errorMessageRegister() {
+    $(".register__userID").addClass('register__userID--invalid');
+    $(".register__deletecode").addClass('register__deletecode--invalid');
+    setTimeout(function () {
+        $(".register__userID").removeClass('register__userID--invalid');
+        $(".register__deletecode").addClass('register__deletecode--success');
+    }, 2500);
+}
+
+function successMessageRegister() {
+    $(".register__userID").addClass('register__userID--success');
+    $(".register__deletecode").addClass('register__deletecode--success');
+    setTimeout(function () {
+        $(".register__userID").removeClass('register__userID--success');
+        $(".register__deletecode").addClass('register__deletecode--success');
+    }, 2500);
+}
+
 function errorMessageDelete() {
     $(".delete__deletecode").addClass('delete__deletecode--invalid');
     $(".delete__deletecode").val('wrong deleteCode');
@@ -61,7 +79,7 @@ function errorMessageDelete() {
 
 function successMessageDelete() {
     $(".delete__deletecode").addClass('delete__deletecode--success');
-    $(".delete__deletecode").val('deletion successfull');
+    $(".delete__deletecode").val('deletion successfull!');
     setTimeout(function () {
         $(".delete__deletecode").removeClass('delete__deletecode--success');
         $(".delete__deletecode").val('');

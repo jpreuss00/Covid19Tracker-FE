@@ -1,4 +1,19 @@
 
+.register__userID--success{
+    border-color: green;
+}
+
+.register__userID--invalid{
+    border-color: red;
+}
+
+.register__deletecode--success{
+    border-color: green;
+}
+
+.register__deletecode--invalid{
+    border-color: red;
+}
 
 .delete__deletecode--success{
     border-color: green;
