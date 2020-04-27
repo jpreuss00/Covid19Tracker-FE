@@ -38,14 +38,28 @@ function handleDeleteRequest(deleteCode){
         url: "https://enigmatic-retreat-23877.herokuapp.com/delete?deleteCode="+encodeURIComponent(deleteCode),
         statusCode: {
             400: function () {
-                console.log("error");
+                errorMessageDelete()
             },
             404: function () {
-                console.log("error");
+                errorMessageDelete()
             },
             204: function () {
-                console.log("error");
+                successMessageDelete()
             }
         }
     });
+}
+
+function errorMessageDelete() {
+    $(".delete__deletecode").addClass('delete__deletecode--invalid');
+    setTimeout(function () {
+        $(".delete__deletecode").removeClass('delete__deletecode--invalid');
+    }, 1000);
+}
+
+function successMessageDelete() {
+    $(".delete__deletecode").addClass('delete__deletecode--success');
+    setTimeout(function () {
+        $(".delete__deletecode").removeClass('delete__deletecode--success');
+    }, 1000);
 }

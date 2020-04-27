@@ -1,0 +1,9 @@
+
+
+.delete__deletecode--success{
+    border-color: green;
+}
+
+.delete__deletecode--invalid{
+    border-color: red;
+}

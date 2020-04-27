@@ -1,0 +1,1 @@
+{"version":3,"sources":["design.css"],"names":[],"mappings":"AAEA,6BACI,kBACJ,CAEA,6BACI,gBACJ","file":"design.25930e85.css","sourceRoot":"..","sourcesContent":["\n\n.delete__deletecode--success{\n    border-color: green;\n}\n\n.delete__deletecode--invalid{\n    border-color: red;\n}\n"]}
