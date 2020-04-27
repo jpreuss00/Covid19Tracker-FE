@@ -56,7 +56,7 @@ function errorMessageRegister() {
     $(".register__deletecode").addClass('register__deletecode--invalid');
     setTimeout(function () {
         $(".register__userID").removeClass('register__userID--invalid');
-        $(".register__deletecode").addClass('register__deletecode--success');
+        $(".register__deletecode").removeClass('register__deletecode--success');
     }, 2500);
 }
 
@@ -65,7 +65,7 @@ function successMessageRegister() {
     $(".register__deletecode").addClass('register__deletecode--success');
     setTimeout(function () {
         $(".register__userID").removeClass('register__userID--success');
-        $(".register__deletecode").addClass('register__deletecode--success');
+        $(".register__deletecode").removeClass('register__deletecode--success');
     }, 2500);
 }
 
