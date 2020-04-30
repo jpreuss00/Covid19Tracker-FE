@@ -22,3 +22,11 @@
 .delete__deletecode--invalid{
     border-color: red;
 }
+
+.location__userID--success{
+    border-color: green;
+}
+
+.location__userID--invalid{
+    border-color: red;
+}

@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     $(".register__userButton").click(handleRegister);
     $(".delete__userButton").click(handleDelete);
+    $(".location__registerButton").click(handleLocation);
 
 });
 
@@ -51,6 +52,30 @@ function handleDeleteRequest(deleteCode){
     });
 }
 
+function handleLocation(location){
+    navigator.geolocation.getCurrentPosition(getGeoLocation);
+}
+
+function handleLocationRequest(userID, latitude, longitude){
+    $.get({
+        url: "https://enigmatic-retreat-23877.herokuapp.com/sighting?userID="+encodeURIComponent(userID)+"&latitude="+encodeURIComponent(latitude)+"&longitude="+encodeURIComponent(longitude),
+        statusCode: {
+            400: function () {
+                errorMessageLocation();
+            },
+            204: function () {
+                successMessageLocation();
+            }
+        }
+    });
+}
+
+function getGeoLocation(location){
+    userID = $(".location__userID").val();
+    alert("userID: " + userID + ", latitude: " + location.coords.latitude + ", longitude: " + location.coords.longitude);
+    handleLocationRequest(userID, location.coords.latitude, location.coords.longitude);
+}
+
 function errorMessageRegister() {
     $(".register__userID").addClass('register__userID--invalid');
     $(".register__deletecode").addClass('register__deletecode--invalid');
@@ -84,5 +109,23 @@ function successMessageDelete() {
     setTimeout(function () {
         $(".delete__deletecode").removeClass('delete__deletecode--success');
         $(".delete__deletecode").val('');
+    }, 2500);
+}
+
+function errorMessageLocation() {
+    $(".location__userID").addClass('location__userID--invalid');
+    $(".location__userID").val('wrong userID');
+    setTimeout(function () {
+        $(".location__userID").removeClass('location__userID--invalid');
+        $(".location__userID").val('');
+    }, 2500);
+}
+
+function successMessageLocation() {
+    $(".location__userID").addClass('location__userID--success');
+    $(".location__userID").val('location has been saved!');
+    setTimeout(function () {
+        $(".location__userID").removeClass('location__userID--success');
+        $(".location__userID").val('');
     }, 2500);
 }
