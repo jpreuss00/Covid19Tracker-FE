@@ -30,3 +30,11 @@
 .location__userID--invalid{
     border-color: red;
 }
+
+.check__areaButton--success{
+    color: green;
+}
+
+.check__areaButton--invalid{
+    color: red;
+}

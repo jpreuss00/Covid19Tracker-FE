@@ -3,6 +3,7 @@ $(document).ready(function () {
     $(".register__userButton").click(handleRegister);
     $(".delete__userButton").click(handleDelete);
     $(".location__registerButton").click(handleLocation);
+    $(".check__areaButton").click(handleCheck);
 
 });
 
@@ -65,6 +66,9 @@ function handleLocationRequest(userID, latitude, longitude){
             },
             204: function () {
                 successMessageLocation();
+            },
+            500: function () {
+                errorMessageLocation2();
             }
         }
     });
@@ -72,8 +76,32 @@ function handleLocationRequest(userID, latitude, longitude){
 
 function getGeoLocation(location){
     userID = $(".location__userID").val();
-    alert("userID: " + userID + ", latitude: " + location.coords.latitude + ", longitude: " + location.coords.longitude);
     handleLocationRequest(userID, location.coords.latitude, location.coords.longitude);
+}
+
+function handleCheck(locations){
+    navigator.geolocation.getCurrentPosition(getGeoLocationCheck);
+}
+
+function handleCheckRequest(latitude, longitude){
+    $.get({
+        url: "https://enigmatic-retreat-23877.herokuapp.com/endangered?latitude="+encodeURIComponent(latitude)+"&longitude="+encodeURIComponent(longitude),
+        statusCode: {
+            400: function () {
+                successMessageCheck();
+            },
+            204: function () {
+                successMessageCheck();
+            },
+            200: function () {
+                errorMessageCheck();
+            }
+        }
+    });
+}
+
+function getGeoLocationCheck(locations){
+    handleCheckRequest(locations.coords.latitude, locations.coords.longitude);
 }
 
 function errorMessageRegister() {
@@ -121,11 +149,34 @@ function errorMessageLocation() {
     }, 2500);
 }
 
+function errorMessageLocation2() {
+    $(".location__userID").addClass('location__userID--invalid');
+    $(".location__userID").val('enter userID');
+    setTimeout(function () {
+        $(".location__userID").removeClass('location__userID--invalid');
+        $(".location__userID").val('');
+    }, 2500);
+}
+
 function successMessageLocation() {
     $(".location__userID").addClass('location__userID--success');
     $(".location__userID").val('location has been saved!');
     setTimeout(function () {
         $(".location__userID").removeClass('location__userID--success');
         $(".location__userID").val('');
+    }, 2500);
+}
+
+function errorMessageCheck() {
+    $(".check__areaButton").addClass('check__areaButton--invalid');
+    setTimeout(function () {
+        $(".check__areaButton").removeClass('check__areaButton--invalid');
+    }, 2500);
+}
+
+function successMessageCheck() {
+    $(".check__areaButton").addClass('check__areaButton--success');
+    setTimeout(function () {
+        $(".check__areaButton").removeClass('check__areaButton--success');
     }, 2500);
 }
